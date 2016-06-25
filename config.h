@@ -56,6 +56,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
+# TODO: add mutt, chromium commands
 static const char *lockmonitor[]  = { "slock", NULL };
 
 static Key keys[] = {
