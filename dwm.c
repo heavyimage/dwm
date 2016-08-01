@@ -1416,7 +1416,6 @@ sendmon(Client *c, Monitor *m)
 	detach(c);
 	detachstack(c);
 	c->mon = m;
-	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
 	attach(c);
 	attachstack(c);
 	focus(NULL);
@@ -1737,12 +1736,16 @@ toggletag(const Arg *arg)
 void
 toggleview(const Arg *arg)
 {
+	Monitor *m;
+
 	unsigned int newtagset = selmon->tagset[selmon->seltags] ^ (arg->ui & TAGMASK);
 
 	if (newtagset) {
-		selmon->tagset[selmon->seltags] = newtagset;
+ 		for(m = mons; m; m = m->next)
+ 			m->tagset[m->seltags] = newtagset;
 		focus(NULL);
-		arrange(selmon);
+ 		for(m = mons; m; m = m->next)
+ 			arrange(m);
 	}
 }
 
@@ -2035,13 +2038,16 @@ updatewmhints(Client *c)
 void
 view(const Arg *arg)
 {
+ 	Monitor *m;
 	if ((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags])
 		return;
 	selmon->seltags ^= 1; /* toggle sel tagset */
 	if (arg->ui & TAGMASK)
-		selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
+ 		for(m = mons; m; m = m->next)
+ 			m->tagset[m->seltags] = arg->ui & TAGMASK;
 	focus(NULL);
-	arrange(selmon);
+ 	for(m = mons; m; m = m->next)
+ 		arrange(m);
 }
 
 Client *
