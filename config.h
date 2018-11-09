@@ -22,6 +22,9 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = { "c&c", "personal", "corelibs", "nukelib", "hierolib", "TV", "show1", "show2", "shotgun+fqu"};
 
+/* gaps */
+static const unsigned int gappx = 6;        /* gap pixel between windows */
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
