@@ -1435,30 +1435,30 @@ resizeclient(Client *c, int x, int y, int w, int h)
  	Client *nbc;
 
 	wc.border_width = c->bw;
- 
- 	/* Get number of clients for the selected monitor */
- 	for (n = 0, nbc = nexttiled(selmon->clients); nbc; nbc = nexttiled(nbc->next), n++);
- 
- 	/* Do nothing if layout is floating */
- 	if (c->isfloating || selmon->lt[selmon->sellt]->arrange == NULL) {
- 		gapincr = gapoffset = 0;
- 	} else {
- 		/* Remove border and gap if layout is monocle or only one client */
- 		if (selmon->lt[selmon->sellt]->arrange == monocle || n == 1) {
- 			gapoffset = 0;
- 			gapincr = -2 * borderpx;
- 			wc.border_width = 0;
- 		} else {
- 			gapoffset = gappx;
- 			gapincr = 2 * gappx;
- 		}
- 	}
- 
- 	c->oldx = c->x; c->x = wc.x = x + gapoffset;
- 	c->oldy = c->y; c->y = wc.y = y + gapoffset;
- 	c->oldw = c->w; c->w = wc.width = w - gapincr;
- 	c->oldh = c->h; c->h = wc.height = h - gapincr;
- 
+
+	/* Get number of clients for the selected monitor */
+	for (n = 0, nbc = nexttiled(selmon->clients); nbc; nbc = nexttiled(nbc->next), n++);
+
+	/* Do nothing if layout is floating */
+	if (c->isfloating || selmon->lt[selmon->sellt]->arrange == NULL) {
+		gapincr = gapoffset = 0;
+	} else {
+		/* Remove border and gap if layout is monocle or only one client */
+		if (selmon->lt[selmon->sellt]->arrange == monocle || n == 1) {
+			gapoffset = 0;
+			gapincr = -2 * borderpx;
+			wc.border_width = 0;
+		} else {
+			gapoffset = gappx;
+			gapincr = 2 * gappx;
+		}
+	}
+
+	c->oldx = c->x; c->x = wc.x = x + gapoffset;
+	c->oldy = c->y; c->y = wc.y = y + gapoffset;
+	c->oldw = c->w; c->w = wc.width = w - gapincr;
+	c->oldh = c->h; c->h = wc.height = h - gapincr;
+
 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
 	configure(c);
 	XSync(dpy, False);
