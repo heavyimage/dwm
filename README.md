@@ -1,6 +1,11 @@
 # My DWM configuration
 * Forked from dwm 6.1
 
+# PREREQUISITES
+On debian, youll need:
+
+	libx11-dev libxinerama-dev libxft-dev
+
 # TODO
 * dropbox sync is too long -- just want status
 * add shortcuts!
