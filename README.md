@@ -4,9 +4,11 @@
 # PREREQUISITES
 On debian, youll need:
 
-	libx11-dev libxinerama-dev libxft-dev
+	sudo apt-get -y install libx11-dev libxinerama-dev libxft-dev
 
 # TODO
+* Merge changes based on patches back into config.def.h
+* list patches here
 * dropbox sync is too long -- just want status
 * add shortcuts!
 * jlucas' setup?
