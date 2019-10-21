@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -60,9 +62,20 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
-static const char *lockmonitor[]  = { "slock", NULL };
+static const char *dmenucmd[]           = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_black, NULL };
+static const char *termcmd[]            = { "st", NULL };
+static const char *lockmonitor[]        = { "slock", NULL };
+
+// Media Controls
+static const char *upvol[]              = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *downvol[]            = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *mutevol[]            = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
+
+// Brightness Controls
+static const char *brightup[]           = { "xbacklight", "-inc", "3", NULL};
+static const char *brightdown[]         = { "xbacklight", "-dec", "3", NULL};
+
+static const char *randomwallpaper[]    = { "random_wallpaper", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -100,6 +113,18 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+    // Media
+    { 0,                            XF86XK_AudioRaiseVolume,    spawn, {.v = upvol } },
+    { 0,                            XF86XK_AudioLowerVolume,    spawn, {.v = downvol } },
+    { 0,                            XF86XK_AudioMute,           spawn, {.v = mutevol } },
+
+    // Brightness
+    { 0,                            XF86XK_MonBrightnessUp,     spawn, {.v = brightup } },
+    { 0,                            XF86XK_MonBrightnessDown,   spawn, {.v = brightdown } },
+
+    // wallpaper
+    { MODKEY|ShiftMask,             XK_r,                       spawn, {.v = randomwallpaper } },
 };
 
 /* button definitions */
