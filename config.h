@@ -73,6 +73,7 @@ static const char *brightup[]           = { "xbacklight", "-inc", "3", NULL};
 static const char *brightdown[]         = { "xbacklight", "-dec", "3", NULL};
 
 static const char *randomwallpaper[]    = { "random_wallpaper", NULL};
+static const char *reloadMenuBar[]    = { "xsetroot.sh", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -122,6 +123,7 @@ static Key keys[] = {
 
     // wallpaper
     { MODKEY|ShiftMask,             XK_r,                       spawn, {.v = randomwallpaper } },
+    { MODKEY,                       XK_r,                       spawn, {.v = reloadMenuBar } },
 };
 
 /* button definitions */
