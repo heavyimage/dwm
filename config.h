@@ -67,7 +67,7 @@ static const char *lockmonitor[]        = { "slock", NULL };
 // Media Controls
 static const char *upvol[]              = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *downvol[]            = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *mutevol[]            = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *togglevol[]          = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
 
 // Brightness Controls
 static const char *brightup[]           = { "xbacklight", "-inc", "3", NULL};
@@ -117,7 +117,7 @@ static Key keys[] = {
     // Media
     { 0,                            XF86XK_AudioRaiseVolume,    spawn, {.v = upvol } },
     { 0,                            XF86XK_AudioLowerVolume,    spawn, {.v = downvol } },
-    { 0,                            XF86XK_AudioMute,           spawn, {.v = mutevol } },
+    { 0,                            XF86XK_AudioMute,           spawn, {.v = togglevol } },
 
     // Brightness
     { 0,                            XF86XK_MonBrightnessUp,     spawn, {.v = brightup } },
