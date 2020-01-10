@@ -65,13 +65,13 @@ static const char *termcmd[]            = { "st", NULL };
 static const char *lockmonitor[]        = { "slock", NULL };
 
 // Media Controls
-static const char *upvol[]              = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *downvol[]            = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *togglevol[]          = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *upvol[]              = { "volume_up", NULL };
+static const char *downvol[]            = { "volume_down", NULL };
+static const char *togglevol[]          = { "volume_toggle", NULL };
 
 // Brightness Controls
-static const char *brightup[]           = { "xbacklight", "-inc", "3", NULL};
-static const char *brightdown[]         = { "xbacklight", "-dec", "3", NULL};
+static const char *brightup[]           = { "brightness_up", NULL};
+static const char *brightdown[]         = { "brightness_down", NULL};
 
 static const char *randomwallpaper[]    = { "random_wallpaper", NULL};
 static const char *reloadMenuBar[]      = { "update_status", NULL};
