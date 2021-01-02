@@ -26,7 +26,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "c&c", "web", "classes", "shell1", "shell2", "shell3", "shell4", "nextfx", "afnom"};
+static const char *tags[] = { "c&c", "web", "chat", "phd", "shell1", "shell2", "shell3", "masv", "preymaker1", "preymaker2", "afnom", "skyvault"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -112,6 +112,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_F1,                     9)
+	TAGKEYS(                        XK_F2,                     10)
+	TAGKEYS(                        XK_F3,                     11)
+	TAGKEYS(                        XK_F4,                     12)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
     // Media
