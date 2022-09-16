@@ -63,6 +63,10 @@ static const char *dmenucmd[]           = { "dmenu_run", "-m", dmenumon, "-fn", 
 static const char *passmenucmd[]        = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
 static const char *termcmd[]            = { "st", NULL };
 static const char *lockmonitor[]        = { "slock", NULL };
+static const char *cmus_next[]          = { "cmus-remote", "-n", NULL };
+static const char *cmus_prev[]          = { "cmus-remote", "-r", NULL };
+static const char *cmus_play[]          = { "cmus-remote", "-p", NULL };
+static const char *cmus_pause[]          = { "cmus-remote", "-u", NULL };
 
 // Media Controls
 static const char *upvol[]              = { "volume_up", NULL };
@@ -124,6 +128,11 @@ static Key keys[] = {
     { 0,                            XF86XK_AudioRaiseVolume,    spawn, {.v = upvol } },
     { 0,                            XF86XK_AudioLowerVolume,    spawn, {.v = downvol } },
     { 0,                            XF86XK_AudioMute,           spawn, {.v = togglevol } },
+	{ MODKEY|ShiftMask,             XK_d,                       spawn, {.v = cmus_next } },
+	{ MODKEY|ShiftMask,             XK_a,                       spawn, {.v = cmus_prev } },
+	{ MODKEY|ShiftMask,             XK_w,                       spawn, {.v = cmus_play } },
+	{ MODKEY|ShiftMask,             XK_s,                       spawn, {.v = cmus_pause } },
+
 
     // Brightness
     { 0,                            XF86XK_MonBrightnessUp,     spawn, {.v = brightup } },
