@@ -1,5 +1,5 @@
 # My DWM configuration
-* Forked from dwm 6.1
+* Forked from dwm 6.4
 
 # PREREQUISITES
 On debian, youll need:
