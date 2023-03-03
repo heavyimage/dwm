@@ -64,10 +64,10 @@ static const char *dmenucmd[]           = { "dmenu_run", "-m", dmenumon, "-fn", 
 static const char *passmenucmd[]        = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
 static const char *termcmd[]            = { "st", NULL };
 static const char *lockmonitor[]        = { "slock", NULL };
-static const char *mus_next[]           = { "cmus-remote", "-n", NULL };
-static const char *mus_prev[]           = { "cmus-remote", "-r", NULL };
-static const char *mus_play[]           = { "cmus-remote", "-p", NULL };
-static const char *mus_pause[]          = { "cmus-remote", "-u", NULL };
+static const char *mus_next[]           = { "mpc", "next", NULL };
+static const char *mus_prev[]           = { "mpc", "prev", NULL };
+static const char *mus_play[]           = { "mpc", "play", NULL };
+static const char *mus_pause[]          = { "mpc", "pause", NULL };
 
 // Media Controls
 static const char *upvol[]              = { "volume_up", NULL };
