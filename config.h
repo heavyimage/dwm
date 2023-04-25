@@ -64,16 +64,15 @@ static const char *dmenucmd[]           = { "dmenu_run", "-m", dmenumon, "-fn", 
 static const char *passmenucmd[]        = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
 static const char *termcmd[]            = { "st", NULL };
 static const char *lockmonitor[]        = { "slock", NULL };
-static const char *mus_next[]           = { "mpc", "next", NULL };
-static const char *mus_prev[]           = { "mpc", "prev", NULL };
-static const char *mus_play[]           = { "mpc", "play", NULL };
-static const char *mus_pause[]          = { "mpc", "pause", NULL };
 
 // Media Controls
 static const char *upvol[]              = { "volume_up", NULL };
 static const char *downvol[]            = { "volume_down", NULL };
 static const char *togglevol[]          = { "volume_toggle", NULL };
 static const char *pavucontrol[]        = { "pavucontrol", NULL };
+static const char *mpctoggle[]          = { "mpc", "toggle", NULL};
+static const char *mpcnext[]            = { "mpc", "next", NULL};
+static const char *mpcprev[]            = { "mpc", "prev", NULL};
 
 // Brightness Controls
 static const char *brightup[]           = { "brightness_up", NULL};
@@ -129,10 +128,9 @@ static Key keys[] = {
     { 0,                            XF86XK_AudioRaiseVolume,    spawn, {.v = upvol } },
     { 0,                            XF86XK_AudioLowerVolume,    spawn, {.v = downvol } },
     { 0,                            XF86XK_AudioMute,           spawn, {.v = togglevol } },
-	{ MODKEY|ShiftMask,             XK_d,                       spawn, {.v = mus_next } },
-	{ MODKEY|ShiftMask,             XK_a,                       spawn, {.v = mus_prev } },
-	{ MODKEY|ShiftMask,             XK_w,                       spawn, {.v = mus_play } },
-	{ MODKEY|ShiftMask,             XK_s,                       spawn, {.v = mus_pause } },
+	{ MODKEY|ShiftMask,             XK_d,                       spawn, {.v = mpcnext } },
+	{ MODKEY|ShiftMask,             XK_a,                       spawn, {.v = mpcprev } },
+	{ MODKEY|ShiftMask,             XK_w,                       spawn, {.v = mpctoggle } },
 
 
     // Brightness
