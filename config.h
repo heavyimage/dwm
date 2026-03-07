@@ -62,6 +62,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]           = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
 static const char *passmenucmd[]        = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
+static const char *moodcmd[]            = { "mood.sh", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
 static const char *termcmd[]            = { "st", NULL };
 static const char *lockmonitor[]        = { "slock", NULL };
 
@@ -85,6 +86,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = moodcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockmonitor } },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = pavucontrol } },
