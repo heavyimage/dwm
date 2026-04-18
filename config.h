@@ -58,7 +58,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* commands */
-static const char *dmenucmd[]           = { "rofi", "-dmenu", NULL};
+static const char *dmenucmd[]           = { "rofi", "-show", "run", NULL};
 static const char *passmenucmd[]        = { "passmenu", NULL};
 static const char *moodcmd[]            = { "mood.sh", NULL};
 static const char *termcmd[]            = { "alacritty_start", NULL };
