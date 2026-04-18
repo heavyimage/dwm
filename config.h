@@ -12,7 +12,6 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=8" };
-static const char dmenufont[]       = { "monospace:size=8" };
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -59,10 +58,9 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]           = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
-static const char *passmenucmd[]        = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
-static const char *moodcmd[]            = { "mood.sh", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_carcosa, "-sf", col_black, NULL };
+static const char *dmenucmd[]           = { "rofi", "-dmenu", NULL};
+static const char *passmenucmd[]        = { "passmenu", NULL};
+static const char *moodcmd[]            = { "mood.sh", NULL};
 static const char *termcmd[]            = { "alacritty_start", NULL };
 static const char *lockmonitor[]        = { "locker", NULL };
 
